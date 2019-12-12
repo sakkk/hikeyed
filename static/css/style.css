@@ -1,3 +1,15 @@
+h1 {
+    float: left;
+    margin-top: 5px;
+    margin-left: 10px;
+}
+
 thead {
     text-align: center;
+}
+
+#detail_add_btn {
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
 }
