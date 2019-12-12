@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}売上明細{% endblock title %}
+
+{% block content %}
+<h1>売上明細</h1>
+<button class="btn btn-primary" onclick="location.href='{% url "detail_add" %}'">追加</button>
+<table class="table">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>商品名</th>
+        <th>価格</th>
+        <th>数量</th>
+        <th>小計</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for detail in detail_list %}
+    <tr>
+        <td style="text-align:center;">{{ detail.id }}</td>
+        <td>{{ detail.product.name }}</td>
+        <td style="text-align:right;">{{ detail.price }}</td>
+        <td style="text-align:right;">{{ detail.amount }}</td>
+        <td style="text-align:right;">{{ detail.sub_total }}</td>
+        <td style="text-align:center">
+            <button class="btn btn-info" onclick="location.href='{% url "detail_edit" detail.pk %}'">修正</button>
+            <button class="btn btn-danger" onclick="location.href='{% url "detail_del" detail.pk %}'">削除</button>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+    <tfoot>
+    <tr>
+        <td colspan="4"></td>
+        <td style="text-align:right;" id="total">計 : {{ total.sub_total__sum }}</td>
+        <td></td>
+    </tr>
+    </tfoot>
+</table>
+{% endblock content %}
