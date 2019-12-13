@@ -1,5 +1,10 @@
 $(function(){
 
+    // toggleメニュー
+    $("#toggle").click(function(){
+        $("ul").slideToggle(200);
+    });
+
     // 売上番号、価格、小計を入力不可
     // $("#id_sales").prop("disabled", "true");
     // $("#id_price").prop("disabled", "true");

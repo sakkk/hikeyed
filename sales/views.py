@@ -4,7 +4,7 @@ from django.views.generic import ListView, DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 
 from sales.forms import SalesDetailForm
-from sales.models import SalesDetail
+from sales.models import SalesDetail, Sales
 
 
 class SalesDetailList(ListView):
@@ -36,3 +36,9 @@ class SalesDetailDel(DeleteView):
     template_name = 'sales/detail_del.html'
     model = SalesDetail
     success_url = reverse_lazy('detail_list')
+
+
+class SalesList(ListView):
+    template_name = 'sales/sales_list.html'
+    model = Sales
+    context_object_name = 'sales_list'

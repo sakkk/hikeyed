@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}商品一覧{% endblock title %}
+
+{% block content %}
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>商品名</th>
+        <th>原価</th>
+        <th>販売価格</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for product in product_list %}
+    <tr>
+        <td>{{ product.name }}</td>
+        <td>{{ product.cost }}</td>
+        <td>{{ product.price }}</td>
+        <td>
+            <button class="btn btn-info" onclick="location.href='{% url "product_edit" product.pk %}'">修正</button>
+            <button class="btn btn-danger" onclick="location.href='{% url "product_del" product.pk %}'">削除</button>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

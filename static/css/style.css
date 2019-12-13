@@ -1,11 +1,46 @@
+body {
+    background-color: lavender;
+    color: steelblue;
+}
+
 h1 {
     float: left;
     margin-top: 5px;
     margin-left: 10px;
 }
 
+ul {
+    display: none;
+    list-style-type: none;
+}
+
+li a{
+    text-decoration:none;
+    display:block;
+    padding:17px 25px;
+    color: steelblue;
+    border-bottom:1px solid #A24861;
+}
+
+li:last-child a{
+    border-bottom:none;
+}
+
+table {
+    
+}
+
 thead {
     text-align: center;
+}
+
+#toggle {
+    position: absolute;
+    top: 17px;
+    right: 25px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
 }
 
 #detail_add_btn {
