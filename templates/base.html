@@ -8,14 +8,12 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
 <body>
-<header>
-    <button id="toggle"><img src="{% static 'img/toggle.png' %}" width="20" height="17" alt="Button"></button>
-    <ul>
-        <li><a href="{% url 'sales_list' %}">売上管理</a></li>
-        <li><a href="{% url 'customer_list' %}">顧客管理</a></li>
-        <li><a href="{% url 'product_list' %}">商品管理</a></li>
-    </ul>
-</header>
+{% if user.is_authenticated %}
+    こんにちは {{ user.username }} さん
+    <p><a href="{% url 'logout' %}">ログアウト</a></p>
+{% else %}
+    <a href="{% url 'login' %}">ログイン</a>
+{% endif %}
 {% block content %}
 {% endblock content %}
 <script src="{% static 'js/jquery-3.4.1.min.js' %}"></script>

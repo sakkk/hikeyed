@@ -42,3 +42,7 @@ class SalesList(ListView):
     template_name = 'sales/sales_list.html'
     model = Sales
     context_object_name = 'sales_list'
+
+
+class SalesEdit(UpdateView):
+    pass

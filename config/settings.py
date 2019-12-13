@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'sales.apps.SalesConfig',
     'customer.apps.CustomerConfig',
     'product.apps.ProductConfig',
+    'accounts.apps.AccountsConfig',
 
 ]
 
@@ -125,3 +126,6 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
+
+LOGIN_REDIRECT_URL = 'sales_list'
+LOGOUT_REDIRECT_URL = 'login'

@@ -5,4 +5,32 @@
 
 {% block content %}
 
+{% include 'header.html' %}
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>売上日</th>
+        <th>お客様名</th>
+        <th>金額</th>
+        <th>支払</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for sales in sales_list %}
+    <tr>
+        <td><a href="{% url 'detail_list' %}">{{ sales.pk }}</a></td>
+        <td>{{ sales.sales_date }}</td>
+        <td>{{ sales.customer.name }}</td>
+        <td>{{ sales.total }}</td>
+        <td>{{ sales.payment.division }}</td>
+        <td>
+            <button class="btn btn-danger" onclick="location.href=''">削除</button>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
 {% endblock content %}
